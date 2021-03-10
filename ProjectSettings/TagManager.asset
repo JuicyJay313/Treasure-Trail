@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Wall
+  - Player
+  - Decorative background
+  - Enemy
+  - Hazards
+  - Invincible
+  - Slopes
+  - Items
+  - Waters
+  - Background
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2127200515
+    locked: 0
+  - name: Decorative Background
+    uniqueID: 2605310981
+    locked: 0
+  - name: Water
+    uniqueID: 34165973
+    locked: 0
+  - name: Foreground
+    uniqueID: 1615969993
+    locked: 0
+  - name: Wall
+    uniqueID: 3766108441
+    locked: 0
+  - name: Slopes
+    uniqueID: 2378979841
+    locked: 0
+  - name: Enemy
+    uniqueID: 207133029
+    locked: 0
+  - name: Hazards
+    uniqueID: 329835803
+    locked: 0
+  - name: Player
+    uniqueID: 773684977
+    locked: 0
+  - name: Items
+    uniqueID: 3473138843
+    locked: 0
