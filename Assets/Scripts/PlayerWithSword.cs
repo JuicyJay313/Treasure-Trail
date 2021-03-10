@@ -220,8 +220,8 @@ public class PlayerWithSword : MonoBehaviour
     {
         if (isGrounded)
         {
-            Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
-            myRigidBody.velocity += jumpVelocityToAdd;
+            Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
+            myRigidBody.velocity = jumpVelocity;
         }
         else
         {

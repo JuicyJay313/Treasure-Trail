@@ -6,6 +6,7 @@ using Cinemachine;
 
 public class Player : MonoBehaviour
 {
+    // To Instantiate when the player collides with the "Sword Pedestal" game object
     [SerializeField] PlayerWithSword heroWithSword;
     // Config params
     [Header ("Player Movement")]
@@ -31,10 +32,12 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     BoxCollider2D myBoxCollider;
     CapsuleCollider2D myCapsuleCollider;
-    float gravityScaleNotGrounded;
-    Vector3 capsuleOffset;
     Health myHealth;
     CinemachineStateDrivenCamera myStateDrivenCamera;
+
+    float gravityScaleNotGrounded;
+    Vector3 capsuleOffset;
+    
 
     void Start()
     {
@@ -135,15 +138,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    /*private void SwapHero()
-    {
-        var newHero = Instantiate(heroWithSword, transform.position, transform.rotation);
-        newHero.GetComponent<Health>().SetHearts(myHealth.GetHeartImages());
-        myStateDrivenCamera.m_AnimatedTarget = newHero.GetComponent<Animator>();
-        myStateDrivenCamera.m_Follow = newHero.transform;
-        myStateDrivenCamera.m_LookAt = newHero.transform;
-        
-    }*/
 
     private void GetHit()
     {
@@ -206,8 +200,8 @@ public class Player : MonoBehaviour
     {
         if (isGrounded)
         {
-            Vector2 jumpVelocityToAdd = new Vector2(0f, jumpSpeed);
-            myRigidBody.velocity += jumpVelocityToAdd;
+            Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
+            myRigidBody.velocity = jumpVelocity;
         }
         else
         {
