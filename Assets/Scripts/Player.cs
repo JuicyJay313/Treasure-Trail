@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
                 
                 if(myHealth.GetCurrentHealth() <= 0)
                 {
-
+                    Die();
                 }
                 else
                 {
@@ -138,6 +138,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Die()
+    {
+        // Trigger Death animation/ Death VFX
+        // Player Destroy
+        // Change scene to game over screen
+    }
 
     private void GetHit()
     {
