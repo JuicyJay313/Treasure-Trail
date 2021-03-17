@@ -1,17 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManagement : MonoBehaviour
 {
     [SerializeField] float levelLoadDelay = 2f;
     [SerializeField] float deathDelay = 2f;
-    [SerializeField] float slowMoMultiplier = 0.2f;
+    [SerializeField] Enemy[] enemies;
+    int currentSceneIndex;
+    int enemiesCount;
+
+    private void Start()
+    {
+        enemiesCount = enemies.Length;
+    }
+
+    private void Update()
+    {
+        LevelComplete();
+    }
+
+    public void enemyDestroy()
+    {
+        enemiesCount--;
+        Debug.Log("Enemies Left: " + enemiesCount);
+    }
     public void LevelComplete()
     {
-        // When all enemies are defeated....
-        // Go to the next level
-        StartCoroutine(LoadNextLevel());
+        if(enemiesCount <= 0)
+        {
+            StartCoroutine(LoadNextLevel());
+        }
+        
     }
 
     public void LevelFailed()
@@ -24,13 +45,14 @@ public class LevelManagement : MonoBehaviour
     IEnumerator LoadNextLevel()
     {
         yield return new WaitForSeconds(levelLoadDelay);
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
     }
 
     IEnumerator LoadGameOver()
     {
-        Time.timeScale = slowMoMultiplier;
         yield return new WaitForSecondsRealtime(deathDelay);
-        //SceneManage.LoadScene("Game Over");
+        SceneManager.LoadScene("Game Over");
         Time.timeScale = 1f;
     }
 }

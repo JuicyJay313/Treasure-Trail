@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     //[SerializeField] GameObject deathVFX;
     //[SerializeField] float durationOfDeathVFX = 1f;
     [SerializeField] float durationOfDeathAnim = 1f;
+    [SerializeField] float invincibilityPeriod = 1f;
 
 
     // Start is called before the first frame update
@@ -29,20 +30,26 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        StartCoroutine(HandleHit(damage));
+            // Play Hurt sound FX
+    }
+
+    IEnumerator HandleHit(int damage)
+    {
+        gameObject.layer = 14;
+        damage = damage > 1 ? 1 : 1;
         currentHealth -= damage;
-        if(currentHealth <= 0)
-        {
-            Die();
-        }
         GetComponent<EnemyMovement>().HurtAnimation();
-        // Play Hurt sound FX
+        yield return new WaitForSeconds(invincibilityPeriod);
+        if(currentHealth <= 0) { Die(); }
+        gameObject.layer = 12;
     }
 
     private void Die()
     {
         Debug.Log(gameObject.name + " died!");
         GetComponent<EnemyMovement>().DieAnimation();
-        
+        FindObjectOfType<LevelManagement>().enemyDestroy();
         Destroy(gameObject, durationOfDeathAnim);
         //GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         //Destroy(explosion, durationOfDeathVFX);

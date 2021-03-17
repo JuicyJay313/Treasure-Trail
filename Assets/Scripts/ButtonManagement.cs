@@ -8,6 +8,7 @@ public class ButtonManagement : MonoBehaviour
 {
     private int highlighted = 0;
     [SerializeField] TextMeshProUGUI[] buttonTexts;
+    [SerializeField] string[] sceneNames;
     Color32 menuTextColor;
     void Start()
     {
@@ -26,6 +27,48 @@ public class ButtonManagement : MonoBehaviour
             highlighted = highlighted == buttonTexts.Length-1 ? 0 : highlighted + 1;
         }
 
+        switch (highlighted)
+        {
+            case 0:
+                for (int i = 0; i < buttonTexts.Length; i++)
+                {
+                    buttonTexts[i].color = menuTextColor;
+                }
+                buttonTexts[highlighted].color = Color.white;
+
+                if (Input.GetButtonDown("Submit"))
+                {
+                    SceneManager.LoadScene(sceneNames[0]);
+                }
+                break;
+
+            case 1:
+                for (int i = 0; i < buttonTexts.Length; i++)
+                {
+                    buttonTexts[i].color = menuTextColor;
+                }
+                buttonTexts[highlighted].color = Color.white;
+
+                if (Input.GetButtonDown("Submit"))
+                {
+                    SceneManager.LoadScene(sceneNames[1]);
+                }
+                break;
+
+            case 2:
+                for (int i = 0; i < buttonTexts.Length; i++)
+                {
+                    buttonTexts[i].color = menuTextColor;
+                }
+                buttonTexts[highlighted].color = Color.white;
+
+                if (Input.GetButtonDown("Submit"))
+                {
+                    SceneManager.LoadScene(sceneNames[2]);
+                }
+                break;
+        }
+        /*
         if (highlighted == 0)
         {
             for(int i = 0; i < buttonTexts.Length; i++)
@@ -64,7 +107,7 @@ public class ButtonManagement : MonoBehaviour
             {
                 // Go to Options screen
             }
-        }
+        }*/
         
     }
 

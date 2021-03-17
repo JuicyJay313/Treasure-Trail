@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1615969993
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 4723107735738678597, guid: f8b30c2afe165d645b54d500a9c30862,
     type: 3}
@@ -232,3 +232,4 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   durationOfDeathAnim: 0.5
+  invincibilityPeriod: 0.5

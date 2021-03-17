@@ -1048,6 +1048,10 @@ MonoBehaviour:
   - {fileID: 1188213659}
   - {fileID: 948210293}
   - {fileID: 786674617}
+  sceneNames:
+  - Level 1
+  - Credits
+  - Options
 --- !u!1 &2104764561
 GameObject:
   m_ObjectHideFlags: 0

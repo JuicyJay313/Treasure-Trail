@@ -17,8 +17,10 @@ public class Player : MonoBehaviour
     [Header ("Damage Received")]
     [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
     [SerializeField] float hurtingPeriod = 1f;
+    [SerializeField] float slowMoMultiplier = 0.2f;
 
-    
+
+
     private int damageFromHazards = 1;
 
     // State
@@ -140,9 +142,12 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        canInput = false;
+        Time.timeScale = slowMoMultiplier;
+        myAnimator.SetTrigger("Dying");
+        gameObject.layer = 14;
         // Trigger Death animation/ Death VFX
-        // Player Destroy
-        // Change scene to game over screen
+        FindObjectOfType<LevelManagement>().LevelFailed(); 
     }
 
     private void GetHit()

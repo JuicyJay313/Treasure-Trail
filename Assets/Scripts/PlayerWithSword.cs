@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class PlayerWithSword : MonoBehaviour
     [Header("Damage Received")]
     [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
     [SerializeField] float hurtingPeriod = 1f;
+    [SerializeField] float slowMoMultiplier = 0.2f;
 
     private int damageFromHazards = 1;
 
@@ -117,9 +119,12 @@ public class PlayerWithSword : MonoBehaviour
 
     private void Die()
     {
-        // Trigger Death animation/ Death VFX
-        // Player Destroy
-        // Change scene to game over screen
+        canInput = false;
+        Time.timeScale = slowMoMultiplier;
+        myAnimator.SetTrigger("Dying");
+        gameObject.layer = 14;
+        // Death VFX
+        FindObjectOfType<LevelManagement>().LevelFailed();
     }
 
     private void GetHit()
@@ -201,14 +206,23 @@ public class PlayerWithSword : MonoBehaviour
 
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange,
                 LayerMask.GetMask("Enemy"));
-
-            foreach (Collider2D enemy in hitEnemies)
+            if(hitEnemies.Length > 0)
             {
-                Debug.Log(enemy.name + " was hit");
-                enemy.GetComponent<Enemy>().TakeDamage(swordDamage);
+                Array.Clear(hitEnemies, 1, hitEnemies.Length - 1);
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    if(enemy != null)
+                    {
+                        Debug.Log(enemy.name + " was hit");
+                        enemy.GetComponent<Enemy>().TakeDamage(swordDamage);
+                    } 
+                }
             }
+
+            
         }
     }
+
 
     private void OnDrawGizmosSelected()
     {
