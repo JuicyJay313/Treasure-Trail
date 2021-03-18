@@ -70,8 +70,10 @@
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\InfiniteScrolling.cs" />
     <Compile Include="Assets\Scripts\LevelManagement.cs" />
+    <Compile Include="Assets\Scripts\MusicPlayer.cs" />
     <Compile Include="Assets\Scripts\ParallaxingBackground.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerPrefsController.cs" />
     <Compile Include="Assets\Scripts\PlayerWithSword.cs" />
     <Compile Include="Assets\Scripts\SwordPedestal.cs" />
     <Compile Include="Assets\Z Not In Use\Z Prototype Hero Demo - Pixel Art\Demo\AudioManager_PrototypeHero.cs" />

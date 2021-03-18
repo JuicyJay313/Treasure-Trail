@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1615969993
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0409f2fddf07780408257c186ab69681, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -191,8 +191,15 @@ MonoBehaviour:
   runSpeed: 10
   jumpSpeed: 35
   groundRadius: 0.4
+  jumpSound: {fileID: 8300000, guid: 5a18f2ef7db9f1943bedda13ff85ee89, type: 3}
+  jumpSoundVolume: 0.5
+  footstepSound: {fileID: 8300000, guid: 1a631ada4ecd9cf49a88b135aa70c396, type: 3}
+  footstepSoundVolume: 0.5
+  landingSound: {fileID: 8300000, guid: 5329b99920a6642409627b29d379aff7, type: 3}
+  landingSoundVolume: 0.5
   deathKick: {x: 7, y: 18}
   hurtingPeriod: 0.5
+  slowMoMultiplier: 0.2
 --- !u!61 &2117417937
 BoxCollider2D:
   m_ObjectHideFlags: 0

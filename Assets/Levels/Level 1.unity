@@ -164,6 +164,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7606691696058572460, guid: a6162aab637f0cf4ea42a9938a011139,
+        type: 3}
+      propertyPath: jumpSoundVolume
+      value: 0.507
+      objectReference: {fileID: 0}
     - target: {fileID: 7755421709344334670, guid: a6162aab637f0cf4ea42a9938a011139,
         type: 3}
       propertyPath: m_Name
