@@ -10,6 +10,15 @@ public class PlayerWithSword : MonoBehaviour
     [SerializeField] float runSpeed = 1f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float groundRadius = 0.1f;
+
+    [Header("Player Sound FX")]
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] [Range(0, 1)] float jumpSoundVolume = 0.5f;
+    [SerializeField] AudioClip footstepSound;
+    [SerializeField] [Range(0, 1)] float footstepSoundVolume = 0.5f;
+    [SerializeField] AudioClip landingSound;
+    [SerializeField] [Range(0, 1)] float landingSoundVolume = 0.5f;
+
     [Header("Player Attack")]
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] float drawSwordTime = 2.4f;
@@ -243,6 +252,7 @@ public class PlayerWithSword : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
             myRigidBody.velocity = jumpVelocity;
+            AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, jumpSoundVolume);
         }
         else
         {
