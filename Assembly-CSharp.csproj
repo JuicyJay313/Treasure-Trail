@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\InfiniteScrolling.cs" />
     <Compile Include="Assets\Scripts\LevelManagement.cs" />
     <Compile Include="Assets\Scripts\MusicPlayer.cs" />
+    <Compile Include="Assets\Scripts\MusicPlayerInGame.cs" />
     <Compile Include="Assets\Scripts\ParallaxingBackground.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerPrefsController.cs" />

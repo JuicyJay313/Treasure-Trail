@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
-    AudioSource audioSource;
+    private AudioSource audioSource;
+
     void Start()
     {
         DontDestroyOnLoad(this);
         audioSource = GetComponent<AudioSource>();
-        //audioSource.volume = PlayerPrefsController.GetMasterVolume();
     }
 
     public void setVolume(float volume)
     {
         audioSource.volume = volume;
+    }
+
+    public void PlayMusic()
+    {
+        if (audioSource.isPlaying) { return; }
+        audioSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        Destroy(gameObject);
     }
 }
