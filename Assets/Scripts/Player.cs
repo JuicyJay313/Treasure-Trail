@@ -17,10 +17,10 @@ public class Player : MonoBehaviour
     [Header("Player Sound FX")]
     [SerializeField] AudioClip jumpSound;
     [SerializeField] [Range(0, 1)] float jumpSoundVolume = 0.5f;
-    [SerializeField] AudioClip footstepSound;
-    [SerializeField] [Range(0, 1)] float footstepSoundVolume = 0.5f;
-    [SerializeField] AudioClip landingSound;
-    [SerializeField] [Range(0, 1)] float landingSoundVolume = 0.5f;
+    //[SerializeField] AudioClip footstepSound;
+    //[SerializeField] [Range(0, 1)] float footstepSoundVolume = 0.5f;
+    //[SerializeField] AudioClip landingSound;
+    //[SerializeField] [Range(0, 1)] float landingSoundVolume = 0.5f;
     
     [Header ("Damage Received")]
     [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
@@ -146,6 +146,14 @@ public class Player : MonoBehaviour
             }
 
         }
+        if (collision.name == "Death Collider")
+        {
+            if (!hasCollided)
+            {
+                hasCollided = true;
+                Die();
+            }
+        }
     }
 
     private void Die()
@@ -155,7 +163,7 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger("Dying");
         gameObject.layer = 14;
         // Trigger Death animation/ Death VFX
-        FindObjectOfType<LevelManagement>().LevelFailed(); 
+        FindObjectOfType<GameSession>().ProcessPlayerDeath(); 
     }
 
     private void GetHit()

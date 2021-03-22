@@ -17,7 +17,7 @@ TagManager:
   - Ground
   - Wall
   - Player
-  - Decorative background
+  - Decorative Background
   - Enemy
   - Hazards
   - Invincible
@@ -25,8 +25,8 @@ TagManager:
   - Items
   - Waters
   - Background
-  - 
-  - 
+  - Hole
+  - Decorative Foreground
   - 
   - 
   - 
@@ -71,4 +71,7 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 3473138843
+    locked: 0
+  - name: Decorative Foreground
+    uniqueID: 2253714813
     locked: 0

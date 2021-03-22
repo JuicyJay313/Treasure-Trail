@@ -31,13 +31,27 @@ public class LevelManagement : MonoBehaviour
         if(enemiesCount <= 0)
         {
             StartCoroutine(LoadNextLevel());
-        }
-        
+        }  
+    }
+
+    public void LoseLife()
+    {
+        // When the players loses all his hearts...
+        // Lose a life and Restart the scene
+        StartCoroutine(LoadCurrentScene());
+    }
+
+    IEnumerator LoadCurrentScene()
+    {
+        yield return new WaitForSecondsRealtime(deathDelay);
+        var currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+        Time.timeScale = 1f;
     }
 
     public void LevelFailed()
     {
-        // When the players loses all his hearts...
+        // When the players loses all his LIVES...
         // Go to game over screen
         StartCoroutine(LoadGameOver());
     }

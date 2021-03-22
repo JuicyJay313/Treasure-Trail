@@ -193,10 +193,6 @@ MonoBehaviour:
   groundRadius: 0.4
   jumpSound: {fileID: 8300000, guid: 5a18f2ef7db9f1943bedda13ff85ee89, type: 3}
   jumpSoundVolume: 1
-  footstepSound: {fileID: 8300000, guid: 1a631ada4ecd9cf49a88b135aa70c396, type: 3}
-  footstepSoundVolume: 1
-  landingSound: {fileID: 8300000, guid: 5329b99920a6642409627b29d379aff7, type: 3}
-  landingSoundVolume: 1
   deathKick: {x: 7, y: 18}
   hurtingPeriod: 0.5
   slowMoMultiplier: 0.2
