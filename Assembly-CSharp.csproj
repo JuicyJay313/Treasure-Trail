@@ -78,10 +78,13 @@
     <Compile Include="Assets\Scripts\PlayerPrefsController.cs" />
     <Compile Include="Assets\Scripts\PlayerWithSword.cs" />
     <Compile Include="Assets\Scripts\SwordPedestal.cs" />
-    <Compile Include="Assets\Z Not In Use\Z Prototype Hero Demo - Pixel Art\Demo\AudioManager_PrototypeHero.cs" />
-    <Compile Include="Assets\Z Not In Use\Z Prototype Hero Demo - Pixel Art\Demo\Dust_DestroyEvent.cs" />
-    <Compile Include="Assets\Z Not In Use\Z Prototype Hero Demo - Pixel Art\Demo\PrototypeHeroDemo.cs" />
-    <Compile Include="Assets\Z Not In Use\Z Prototype Hero Demo - Pixel Art\Demo\Sensor_Prototype.cs" />
+    <Compile Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\ColorSwap\ColorSwap_Prototype.cs" />
+    <Compile Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\Demo\AudioManager_PrototypeHero.cs" />
+    <Compile Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\Demo\Dust_DestroyEvent.cs" />
+    <Compile Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\Demo\GrabableLedge.cs" />
+    <Compile Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\Demo\PrototypeHero.cs" />
+    <Compile Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\Demo\PrototypeHeroAnimEvents.cs" />
+    <Compile Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\Demo\Sensor_Prototype.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -96,6 +99,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\ColorSwap\Sprites-ColorSwap.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
