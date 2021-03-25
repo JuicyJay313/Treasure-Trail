@@ -241,10 +241,5 @@ MonoBehaviour:
     type: 3}
   emptyHeart: {fileID: -7954658308581492485, guid: 812a02d691a4f2a4c96beb6f87bd2b90,
     type: 3}
-  hearts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  hearts: []
   currentHealth: 0

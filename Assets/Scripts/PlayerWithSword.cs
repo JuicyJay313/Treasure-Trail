@@ -14,6 +14,8 @@ public class PlayerWithSword : MonoBehaviour
     [Header("Player Sound FX")]
     [SerializeField] AudioClip jumpSound;
     [SerializeField] [Range(0, 1)] float jumpSoundVolume = 0.5f;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] [Range(0, 1)] float attackSoundVolume = 0.5f;
     //[SerializeField] AudioClip footstepSound;
     //[SerializeField] [Range(0, 1)] float footstepSoundVolume = 0.5f;
     //[SerializeField] AudioClip landingSound;
@@ -220,23 +222,25 @@ public class PlayerWithSword : MonoBehaviour
         if (isGrounded)
         {
             myAnimator.SetTrigger("Attacking");
-
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange,
-                LayerMask.GetMask("Enemy"));
-            if(hitEnemies.Length > 0)
+            AudioSource.PlayClipAtPoint(attackSound, Camera.main.transform.position, attackSoundVolume);
+            Vector3 rayStart = transform.position;
+            RaycastHit2D hit;
+            if (IsFacingRight())
             {
-                Array.Clear(hitEnemies, 1, hitEnemies.Length - 1);
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    if(enemy != null)
-                    {
-                        Debug.Log(enemy.name + " was hit");
-                        enemy.GetComponent<Enemy>().TakeDamage(swordDamage);
-                    } 
-                }
+                hit = Physics2D.Raycast(rayStart, Vector2.right, attackRange, 
+                    LayerMask.GetMask("Enemy"));
+            }
+            else
+            {
+                hit = Physics2D.Raycast(rayStart, Vector2.left, attackRange,
+                    LayerMask.GetMask("Enemy"));
             }
 
-            
+            if(hit.collider != null)
+            {
+                Debug.Log(hit.collider.name + " was hit");
+                hit.collider.GetComponent<Enemy>().TakeDamage(swordDamage);
+            }            
         }
     }
 

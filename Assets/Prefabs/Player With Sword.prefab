@@ -162,7 +162,9 @@ MonoBehaviour:
   groundRadius: 0.4
   jumpSound: {fileID: 8300000, guid: 5a18f2ef7db9f1943bedda13ff85ee89, type: 3}
   jumpSoundVolume: 1
-  attackRange: 1.8
+  attackSound: {fileID: 8300000, guid: 952f4e06b9fc14a4abd72725f0c66eb2, type: 3}
+  attackSoundVolume: 0.5
+  attackRange: 4
   drawSwordTime: 3
   attackPoint: {fileID: 4535166781562619076}
   swordDamage: 1

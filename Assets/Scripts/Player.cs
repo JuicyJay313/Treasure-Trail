@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -23,7 +21,7 @@ public class Player : MonoBehaviour
     //[SerializeField] [Range(0, 1)] float landingSoundVolume = 0.5f;
     
     [Header ("Damage Received")]
-    [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
+    [SerializeField] Vector2 hurtKick = new Vector2(25f, 25f);
     [SerializeField] float hurtingPeriod = 1f;
     [SerializeField] float slowMoMultiplier = 0.2f;
 
@@ -171,15 +169,15 @@ public class Player : MonoBehaviour
         if (!IsFacingRight())
         {
             myCapsuleCollider.enabled = false;
-            myRigidBody.velocity = deathKick;
+            myRigidBody.velocity = hurtKick;
             StartCoroutine(Hurt());
             myCapsuleCollider.enabled = true;
         }
         else
         {
             myCapsuleCollider.enabled = false;
-            Vector2 leftDeathKick = new Vector2(-deathKick.x, deathKick.y);
-            myRigidBody.velocity = leftDeathKick;
+            Vector2 leftHurtKick = new Vector2(-hurtKick.x, hurtKick.y);
+            myRigidBody.velocity = leftHurtKick;
             StartCoroutine(Hurt());
             myCapsuleCollider.enabled = true;
         }

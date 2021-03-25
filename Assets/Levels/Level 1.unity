@@ -202,6 +202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7961960829764704442, guid: a6162aab637f0cf4ea42a9938a011139,
         type: 3}
+      propertyPath: hearts.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961960829764704442, guid: a6162aab637f0cf4ea42a9938a011139,
+        type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
       objectReference: {fileID: 361660526524945243}
@@ -58125,10 +58130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 365906507, guid: 4432aded9252ea64996d480db1e87c1a, type: 3}
-      propertyPath: invincibilityPeriod
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 2701449435980563875, guid: 4432aded9252ea64996d480db1e87c1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -58210,11 +58211,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1940571587002781012, guid: eed057fc0cdc6c54ca9c96d0b242fb32,
-        type: 3}
-      propertyPath: invincibilityPeriod
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 4581060639350719154, guid: eed057fc0cdc6c54ca9c96d0b242fb32,
         type: 3}
       propertyPath: m_Name
@@ -58284,11 +58280,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4819303151370053353, guid: f8f636ba80d9a21438293eb03eb4ddce,
-        type: 3}
-      propertyPath: invincibilityPeriod
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 7466092268124334337, guid: f8f636ba80d9a21438293eb03eb4ddce,
         type: 3}
       propertyPath: m_RootOrder

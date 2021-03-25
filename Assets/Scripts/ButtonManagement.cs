@@ -13,6 +13,10 @@ public class ButtonManagement : MonoBehaviour
     void Start()
     {
         menuTextColor = buttonTexts[0].color;
+        if(gameObject.name == "End Screen")
+        {
+            GameObject.FindGameObjectWithTag("Game Session").GetComponent<GameSession>().DestroyGameSession();
+        }
     }
 
     void Update()

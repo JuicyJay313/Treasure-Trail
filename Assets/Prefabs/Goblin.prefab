@@ -189,7 +189,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2.71
   hurtAnimationTime: 0.5
-  deathAnimationTime: 0.5
 --- !u!61 &4819303152407048510
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -231,5 +230,8 @@ MonoBehaviour:
   damage: 1
   maxHealth: 3
   currentHealth: 0
+  deathTriggerName: Goblin
+  deathAnimation: {fileID: 6961334456880240669, guid: 68acd6700b970c348b75e3d30b8d6743,
+    type: 3}
   durationOfDeathAnim: 0.5
-  invincibilityPeriod: 0.5
+  invincibilityPeriod: 0.3

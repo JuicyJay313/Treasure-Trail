@@ -58,4 +58,9 @@ public class GameSession : MonoBehaviour
         FindObjectOfType<LevelManagement>().LevelFailed();
         Destroy(gameObject);
     }
+
+    public void DestroyGameSession()
+    {
+        Destroy(gameObject);
+    }
 }

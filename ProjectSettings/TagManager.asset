@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Music
+  - End
+  - Game Session
   layers:
   - Default
   - TransparentFX

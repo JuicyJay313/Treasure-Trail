@@ -8,7 +8,6 @@ public class EnemyMovement : MonoBehaviour
     // Congig parameters
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float hurtAnimationTime = 1f;
-    [SerializeField] float deathAnimationTime = 1f;
 
     private bool canMove = true;
 
@@ -49,19 +48,6 @@ public class EnemyMovement : MonoBehaviour
         myAnimator.SetTrigger("Take Hit");
         StartCoroutine(HurtDelay());
 
-    }
-
-    public void DieAnimation()
-    {
-        myAnimator.SetTrigger("Death");
-        StartCoroutine(DeathDelay());
-    }
-
-    IEnumerator DeathDelay()
-    {
-        canMove = false;
-        myRigidBody.velocity = new Vector2(0f, 0f);
-        yield return new WaitForSeconds(deathAnimationTime);
     }
 
     IEnumerator HurtDelay()

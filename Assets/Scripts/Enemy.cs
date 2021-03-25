@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header ("Enemy Stats")]
     [SerializeField] int damage = 1;
     [SerializeField] int maxHealth = 2;
     [SerializeField] int currentHealth;
-    //[SerializeField] GameObject deathVFX;
-    //[SerializeField] float durationOfDeathVFX = 1f;
-    [SerializeField] float durationOfDeathAnim = 1f;
+
+    [Header ("Death Properties")]
+    [SerializeField] GameObject deathAnimation;
+    [SerializeField] float durationOfDeathAnim = 0.5f;
     [SerializeField] float invincibilityPeriod = 1f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         StartCoroutine(HandleHit(damage));
-            // Play Hurt sound FX
+        // Play Hurt sound FX
     }
 
     IEnumerator HandleHit(int damage)
@@ -48,15 +48,11 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Debug.Log(gameObject.name + " died!");
-        GetComponent<EnemyMovement>().DieAnimation();
         FindObjectOfType<LevelManagement>().enemyDestroy();
-        Destroy(gameObject, durationOfDeathAnim);
-        //GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
-        //Destroy(explosion, durationOfDeathVFX);
-        //Play Particle effect
-        //Destroy GameObject
-        //Play Die Animation
-        //Play Die sound FX
+        Destroy(gameObject);
+        GameObject death = Instantiate(deathAnimation, transform.position, transform.rotation);
+        death.GetComponent<Animator>().SetTrigger(gameObject.name);
+        Destroy(death, durationOfDeathAnim);
     }
 
 
