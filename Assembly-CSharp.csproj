@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\MusicPlayerInGame.cs" />
     <Compile Include="Assets\Scripts\ParallaxingBackground.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PlayerAnimEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerPrefsController.cs" />
     <Compile Include="Assets\Scripts\PlayerSFXManager.cs" />
     <Compile Include="Assets\Scripts\PlayerWSAnimEvents.cs" />

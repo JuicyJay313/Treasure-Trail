@@ -12,17 +12,17 @@ public class PlayerWSAnimEvents : MonoBehaviour
         mySFXManager = PlayerSFXManager.instance;
     }
 
-    void AE_footstep()
+    void AE_footstepWS()
     {
         mySFXManager.PlaySFX("Footstep");
     }
 
-    void AE_runStop()
+    void AE_runStopWS()
     {
         mySFXManager.PlaySFX("Run Stop");
     }
 
-    void AE_Jump()
+    void AE_JumpWS()
     {
         mySFXManager.PlaySFX("Jump");
     }
