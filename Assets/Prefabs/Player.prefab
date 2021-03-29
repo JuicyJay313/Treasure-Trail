@@ -193,7 +193,7 @@ MonoBehaviour:
   groundRadius: 0.4
   jumpSound: {fileID: 8300000, guid: 5a18f2ef7db9f1943bedda13ff85ee89, type: 3}
   jumpSoundVolume: 1
-  deathKick: {x: 7, y: 18}
+  hurtKick: {x: 7, y: 15}
   hurtingPeriod: 0.5
   slowMoMultiplier: 0.2
 --- !u!61 &2117417937
@@ -241,5 +241,10 @@ MonoBehaviour:
     type: 3}
   emptyHeart: {fileID: -7954658308581492485, guid: 812a02d691a4f2a4c96beb6f87bd2b90,
     type: 3}
-  hearts: []
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   currentHealth: 0

@@ -11,21 +11,11 @@ public class PlayerWithSword : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float groundRadius = 0.1f;
 
-    [Header("Player Sound FX")]
-    [SerializeField] AudioClip jumpSound;
-    [SerializeField] [Range(0, 1)] float jumpSoundVolume = 0.5f;
-    [SerializeField] AudioClip attackSound;
-    [SerializeField] [Range(0, 1)] float attackSoundVolume = 0.5f;
-    //[SerializeField] AudioClip footstepSound;
-    //[SerializeField] [Range(0, 1)] float footstepSoundVolume = 0.5f;
-    //[SerializeField] AudioClip landingSound;
-    //[SerializeField] [Range(0, 1)] float landingSoundVolume = 0.5f;
-
     [Header("Player Attack")]
     [SerializeField] float attackRange = 0.5f;
     [SerializeField] float drawSwordTime = 2.4f;
-    [SerializeField] private Transform attackPoint;
     [SerializeField] int swordDamage = 1;
+    [SerializeField] float delayBewtweenAttack = 0.2f;
 
     [Header("Damage Received")]
     [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
@@ -39,6 +29,8 @@ public class PlayerWithSword : MonoBehaviour
     private bool isGrounded;
     private float velocityX;
     private bool hasCollided = false;
+    private float disableMovementTimer = 0.0f;
+    
 
     // Cached component references
     Rigidbody2D myRigidBody;
@@ -52,7 +44,7 @@ public class PlayerWithSword : MonoBehaviour
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
-        myAnimator = GetComponent<Animator>();
+        myAnimator = GetComponentInChildren<Animator>();
         myBoxCollider = GetComponent<BoxCollider2D>();
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
         myHealth = FindObjectOfType<Health>();
@@ -64,6 +56,8 @@ public class PlayerWithSword : MonoBehaviour
     {
 
         if (!canInput) { return; }
+        disableMovementTimer -= Time.deltaTime;
+        delayBewtweenAttack += Time.deltaTime;
         Run();
         FlipSprite();
         HandleInput();
@@ -199,8 +193,7 @@ public class PlayerWithSword : MonoBehaviour
 
         isGrounded = Physics2D.OverlapCircle(transform.position + capsuleOffset, groundRadius,
             LayerMask.GetMask("Ground", "Slopes"));
-
-        velocityX = Input.GetAxis("Horizontal");
+        
     }
 
 
@@ -219,43 +212,48 @@ public class PlayerWithSword : MonoBehaviour
 
     private void Attack()
     {
-        if (isGrounded)
+        if (isGrounded && delayBewtweenAttack > 0.2f)
         {
+            delayBewtweenAttack = 0.0f;
+
+            // disable movements
+            disableMovementTimer = 0.35f;
+            myRigidBody.velocity = new Vector2(0, 0);
+
             myAnimator.SetTrigger("Attacking");
-            AudioSource.PlayClipAtPoint(attackSound, Camera.main.transform.position, attackSoundVolume);
+            //AudioSource.PlayClipAtPoint(attackSound, Camera.main.transform.position, attackSoundVolume);
             Vector3 rayStart = transform.position;
             RaycastHit2D hit;
             if (IsFacingRight())
             {
-                hit = Physics2D.Raycast(rayStart, Vector2.right, attackRange, 
-                    LayerMask.GetMask("Enemy"));
+            hit = Physics2D.Raycast(rayStart, Vector2.right, attackRange,
+                LayerMask.GetMask("Enemy"));
             }
             else
             {
-                hit = Physics2D.Raycast(rayStart, Vector2.left, attackRange,
-                    LayerMask.GetMask("Enemy"));
+            hit = Physics2D.Raycast(rayStart, Vector2.left, attackRange,
+                LayerMask.GetMask("Enemy"));
             }
 
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
-                Debug.Log(hit.collider.name + " was hit");
-                hit.collider.GetComponent<Enemy>().TakeDamage(swordDamage);
-            }            
+            Debug.Log(hit.collider.name + " was hit");
+            hit.collider.GetComponent<Enemy>().TakeDamage(swordDamage);
+            }         
         }
     }
 
 
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null) { return; }
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
 
     private void Run()
     {
-        Vector2 playerVelocity = new Vector2(velocityX * runSpeed, myRigidBody.velocity.y);
-        myRigidBody.velocity = playerVelocity;
+        if (disableMovementTimer < 0.0f)
+        {
+            velocityX = Input.GetAxis("Horizontal");
+            Vector2 playerVelocity = new Vector2(velocityX * runSpeed, myRigidBody.velocity.y);
+            myRigidBody.velocity = playerVelocity;
+        }
+          
     }
 
     private void Jump()
@@ -264,7 +262,7 @@ public class PlayerWithSword : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
             myRigidBody.velocity = jumpVelocity;
-            AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, jumpSoundVolume);
+            //AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, jumpSoundVolume);
         }
         else
         {

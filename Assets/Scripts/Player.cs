@@ -135,11 +135,11 @@ public class Player : MonoBehaviour
                     collision.transform.position.y -1.5f, 
                     collision.transform.position.z), collision.transform.rotation);
                 newHero.GetComponent<Health>().SetHearts(myHealth.GetHeartImages());
-                myStateDrivenCamera.m_AnimatedTarget = newHero.GetComponent<Animator>();
+                myStateDrivenCamera.m_AnimatedTarget = newHero.GetComponentInChildren<Animator>();
                 myStateDrivenCamera.m_Follow = newHero.transform;
                 myStateDrivenCamera.m_LookAt = newHero.transform;
                 Destroy(gameObject);
-                newHero.GetComponent<Animator>().SetTrigger("Draw Sword");
+                newHero.GetComponentInChildren<Animator>().SetTrigger("Draw Sword");
                 newHero.DrawSword();
             }
 

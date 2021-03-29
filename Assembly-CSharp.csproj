@@ -76,6 +76,8 @@
     <Compile Include="Assets\Scripts\ParallaxingBackground.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerPrefsController.cs" />
+    <Compile Include="Assets\Scripts\PlayerSFXManager.cs" />
+    <Compile Include="Assets\Scripts\PlayerWSAnimEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerWithSword.cs" />
     <Compile Include="Assets\Scripts\SwordPedestal.cs" />
     <Compile Include="Assets\Z Not In Use\Prototype Hero - Pixel Art\ColorSwap\ColorSwap_Prototype.cs" />
