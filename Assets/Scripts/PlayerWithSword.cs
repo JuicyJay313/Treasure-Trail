@@ -21,6 +21,7 @@ public class PlayerWithSword : MonoBehaviour
     [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
     [SerializeField] float hurtingPeriod = 1f;
     [SerializeField] float slowMoMultiplier = 0.2f;
+    [SerializeField] float invicibilityPeriod = 1f;
 
     private int damageFromHazards = 1;
 
@@ -30,6 +31,7 @@ public class PlayerWithSword : MonoBehaviour
     private float velocityX;
     private bool hasCollided = false;
     private float disableMovementTimer = 0.0f;
+    private int attackNumber = 1;
     
 
     // Cached component references
@@ -219,9 +221,13 @@ public class PlayerWithSword : MonoBehaviour
             // disable movements
             disableMovementTimer = 0.35f;
             myRigidBody.velocity = new Vector2(0, 0);
+            
 
-            myAnimator.SetTrigger("Attacking");
-            //AudioSource.PlayClipAtPoint(attackSound, Camera.main.transform.position, attackSoundVolume);
+            myAnimator.SetTrigger("Attacking" + attackNumber);
+
+            attackNumber = attackNumber == 2 ? 1 : 2;
+            Debug.Log("Attack Number: " + attackNumber);
+     
             Vector3 rayStart = transform.position;
             RaycastHit2D hit;
             if (IsFacingRight())
@@ -262,7 +268,6 @@ public class PlayerWithSword : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
             myRigidBody.velocity = jumpVelocity;
-            //AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, jumpSoundVolume);
         }
         else
         {

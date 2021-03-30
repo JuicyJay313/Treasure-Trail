@@ -11,14 +11,6 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 1f;
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float groundRadius = 0.1f;
-
-    [Header("Player Sound FX")]
-    [SerializeField] AudioClip jumpSound;
-    [SerializeField] [Range(0, 1)] float jumpSoundVolume = 0.5f;
-    //[SerializeField] AudioClip footstepSound;
-    //[SerializeField] [Range(0, 1)] float footstepSoundVolume = 0.5f;
-    //[SerializeField] AudioClip landingSound;
-    //[SerializeField] [Range(0, 1)] float landingSoundVolume = 0.5f;
     
     [Header ("Damage Received")]
     [SerializeField] Vector2 hurtKick = new Vector2(25f, 25f);
@@ -227,7 +219,6 @@ public class Player : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(0f, jumpSpeed);
             myRigidBody.velocity = jumpVelocity;
-            AudioSource.PlayClipAtPoint(jumpSound, Camera.main.transform.position, jumpSoundVolume);
         }
         else
         {
